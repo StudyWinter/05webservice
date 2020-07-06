@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>信息页面</title>
+</head>
+<body>
+
+<h2>欢迎来到注册页面</h2>
+
+<!--添加用户-->
+    <div>
+        <form action="/adduser" method="post">
+            <label for="">用户名</label>
+            <input type="text" name="username" placeholder="用户名">
+            <label for="">密码</label>
+            <input type="password" name="password" placeholder="密码">
+            <input type="submit" value="注册">
+
+            <!--添加用户时，用户名重复，不能添加，返回msg对应的repeat，在login页面显示-->
+            <h2 th:utext="${msg}"></h2>
+
+            <!--添加用户时，成功添加，返回msg1对应的register，在login页面显示-->
+            <h2 th:utext="${msg1}"></h2>
+        </form>
+    </div>
+
+<!--删除用户-->
+    <div>
+        <form action="/deleteuser" method="post">
+            <input type="text" name="username" placeholder="用户名">
+            <input type="submit" value="删除用户">
+
+            <!--删除用户时，有该用户，删除成功，返回msg2对应的delete，在login页面显示-->
+            <h2 th:utext="${msg2}"></h2>
+
+            <!--删除用户时，无用户，无法删除，返回msg3对应的null，在login页面显示-->
+            <h2 th:utext="${msg3}"></h2>
+
+        </form>
+    </div>
+
+
+<!--修改用户信息-->
+    <div>
+        <form action="/updateuser" method="post">
+            <input type="text" name="username" placeholder="用户名">
+            <input type="password" name="password" placeholder="密码">
+            <input type="submit" value="修改用户信息">
+
+            <!--修改用户时，有该用户，修改成功，返回msg4对应的update，在login页面显示-->
+            <h2 th:utext="${msg4}"></h2>
+
+            <!--修改用户时，无用户，修改不成功，返回msg5对应的null，在login页面显示-->
+            <h2 th:utext="${msg5}"></h2>
+        </form>
+    </div>
+
+
+<!--得到一个用户-->
+    <div>
+        <form action="/getuser" method="post">
+            <input type="text" name="username" placeholder="用户名">
+            <input type="submit" value="查询用户">
+
+            <!--查询用户时，有该用户，查询成功，返回msg6对应的get，在login页面显示-->
+            <h2 th:utext="${msg6}"></h2>
+
+            <!--查询用户时，无用户，查询不成功，返回msg7对应的get，在login页面显示-->
+            <h2 th:utext="${msg7}"></h2>
+        </form>
+    </div>
+
+
+
+</body>
+</html>
